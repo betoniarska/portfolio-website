@@ -29,13 +29,6 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
           }}
           className={`fade-container ${transitioning ? 'fade-out' : 'fade-in'}`}
         >
-          <button
-            className="custom-button-big"
-            onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
-          >
-            Discord Chatbot
-          </button>
-          <p className="project-description">Discord chat bot powered by GPT-4</p>
 
           <button
             className="custom-button-big"
@@ -43,7 +36,15 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
           >
             Portfolio Website
           </button>
-          <p className="project-description">Made With Three.js & React</p>
+
+          <p className="project-description">This space odyssey is made With Three.js & React.</p>
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
+          >
+            Discord Chatbot
+          </button>
+          <p className="project-description">A Discord chat bot that allows you to converse with the Jedi Grand Master Yoda. Powered by GPT-4.</p>
 
           <button
             className="custom-button-big"
@@ -51,7 +52,7 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
           >
             Murmuration With Three.js
           </button>
-          <p className="project-description">Three.js particle system attempting to mimic starlings</p>
+          <p className="project-description">Murmuration is a term used to describe the flocking behavior in Starlings. The word murmuration stems from the word ‘murmur’, which is a continuous, low humming sound.  This project is my attempt to mimic murmuration and a for fun experimentation with Three.js and ChatGPT.</p>
 
           <button
             className="custom-button-big"
@@ -59,7 +60,7 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
           >
             Gartic Phone
           </button>
-          <p className="project-description">Gartic phone app</p>
+          <p className="project-description">Gartic Phone app which utilizes threads.</p>
 
           <button
             className="custom-button-big"

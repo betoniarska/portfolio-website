@@ -17,10 +17,10 @@ const Contact = ({ isOpen, transitioning, onToggle }) => {
         <div
           style={{
             position: 'fixed',
-            top: '0',
+            top: '30px',
             right: '0',
             height: '100vh',
-            width: '300px',
+            width: '500px',
             overflowY: 'auto',
             color: '#EBF5EE',
             pointerEvents: 'auto',
@@ -30,58 +30,11 @@ const Contact = ({ isOpen, transitioning, onToggle }) => {
           className={transitioning ? 'fade-out' : 'fade-in'}
         >
           
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '80px',
-              right: '30px',
-
-              display: 'flex',
-              gap: '10px',
-            }}
-          >
-            <button
-              className="custom-button"
-              onClick={() => window.open('https://fi.linkedin.com/in/aarni-kivel%C3%A4-425353253', '_blank')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-              }}
-            >
-              <img 
-                src="/resources/linkedin-icon2.png" 
-                alt="LinkedIn Icon" 
-                style={{ 
-                  width: '40px', 
-                  height: '40px', 
-                  filter: 'invert(1)',
-                }} 
-              />
-              LinkedIn
-            </button>
-
-            <button
-              className="custom-button"
-              onClick={() => window.open('https://github.com/betoniarska/', '_blank')}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-              }}
-            >
-              <img 
-                src="/resources/github-icon-lg.png" 
-                alt="GitHub Icon" 
-                style={{ 
-                  width: '40px', 
-                  height: '40px', 
-                  filter: 'invert(1)',
-                }} 
-              />
-              GitHub
-            </button>
-          </div>
+          <h1 style={{ marginTop: '20px', color: 'var(--text-color)', fontFamily: "Space Grotesk" }}>Contact Information</h1>
+          <p className='info-text'>aarni.i.kivela@gmail.com</p>
+          <p className='info-text'>+358 40 964 3044</p>
+          
+          
         </div>
       )}
     </div>

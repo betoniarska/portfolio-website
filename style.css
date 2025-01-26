@@ -17,7 +17,7 @@ html, body, #root {
   z-index: -1; 
 }
 
-.scrollable-ui {
+.ui {
   position: fixed;
   z-index: 1000; 
   height: 100vh;
@@ -32,6 +32,7 @@ html, body, #root {
   --border-color: #121212;
   --new-background-color: #13041f;
   --new-text-color: #111111;
+  --logo-color: 0;
 }
 
 [data-theme="light"] {
@@ -39,7 +40,7 @@ html, body, #root {
   --text-color: #111111;
   --accent-color: #EF6C94;
   --border-color: #CCCCCC;
-  --logo-color: #000000;
+  --logo-color: 1;
 }
 
 [data-theme="dark"] {
@@ -47,8 +48,9 @@ html, body, #root {
   --text-color: #EBF5EE;
   --accent-color: #EF946C;
   --border-color: #121212;
-  --logo-color: #FFFFFF;
+  --logo-color: 0;
 }
+
 
 @keyframes fadeInColors {
   0% {
@@ -59,14 +61,6 @@ html, body, #root {
     background-color: var(--new-background-color);
     color: var(--new-text-color);
   }
-}
-
-.theme-light .utu-logo {
-  filter: invert(0);
-}
-
-.theme-dark .utu-logo {
-  filter: invert(1); 
 }
 
 .fade-transition {
@@ -97,7 +91,7 @@ div {
 }
 
 
-.custom-button {
+.custom-button2 {
   all: unset;
   color: var(--text-color);
   padding: 15px;
@@ -107,7 +101,20 @@ div {
   letter-spacing: 2px;
 }
 
+.custom-button {
+  all: unset;
+  color: var(--text-color);
+  padding: 15px 0px 15px 0px;
+  cursor: pointer;
+  font-family: 'Space Grotesk';
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
 .custom-button:hover {
+  color: var(--accent-color);
+}
+.custom-button2:hover {
   color: var(--accent-color);
 }
 
@@ -129,18 +136,34 @@ div {
 .project-description {
   color: var(--text-color);
   font-family: "Space Grotesk";
-  text-align: "end";
+  text-align: start;
+  width: calc(100% - 100px);
+  padding-left: 50px;
+  padding-right: 0px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
+
 .home-text {
   color: var(--text-color);
   font-family: "Space Grotesk";
   text-align: "end";
 }
 
+li::marker {
+  content: " - "
+}
+
+.info-text {
+  color: var(--text-color);
+  font-family: "Space Grotesk";
+  text-align: "start";
+}
+
 .header {
   font-family: 'Space Grotesk';
   font-size: 70px;
-  padding: 20px 0 5px 0;
+  padding: 0 0 0 0;
   margin-top: 0px;
   margin-bottom: 40px;
   color: var(--text-color);
@@ -152,23 +175,29 @@ div {
 }
 
 
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid var(--text-color);
-  border-top: 5px solid var(--accent-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+.loader {
+
+
+  width: 200px;
+  aspect-ratio: .75;
+  --c: no-repeat linear-gradient(#CCC 0 0);
+  background: 
+    var(--c) 0%   50%,
+    var(--c) 50%  50%,
+    var(--c) 100% 50%;
+  animation: l7 1s infinite linear alternate;
+}
+@keyframes l7 {
+  0%  {background-size: 20% 50% ,20% 50% ,20% 50% }
+  20% {background-size: 20% 20% ,20% 50% ,20% 50% }
+  40% {background-size: 20% 100%,20% 20% ,20% 50% }
+  60% {background-size: 20% 50% ,20% 100%,20% 20% }
+  80% {background-size: 20% 50% ,20% 50% ,20% 100%}
+  100%{background-size: 20% 50% ,20% 50% ,20% 50% }
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
+
 
 .fade-in {
   animation: fadeIn 0.5s backwards; 

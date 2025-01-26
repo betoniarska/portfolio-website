@@ -8,17 +8,17 @@ import { updateSceneTheme } from '../threejs/main';
 
 const UI = () => {
   const [activeSidebar, setActiveSidebar] = useState('home');
-  const [sidebarTransitioning, setSidebarTransitioning] = useState(false); // Sidebar-specific transition state
+  const [sidebarTransitioning, setSidebarTransitioning] = useState(false); 
   const [loading, setLoading] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [themeTransitioning, setThemeTransitioning] = useState(false); // Theme-specific transition state
+  const [themeTransitioning, setThemeTransitioning] = useState(false);
 
   const toggleSidebar = (sidebarName) => {
     if (activeSidebar === sidebarName) return;
-    setSidebarTransitioning(true); // Trigger the sidebar transition
+    setSidebarTransitioning(true); 
     setTimeout(() => {
       setActiveSidebar(sidebarName);
-      setSidebarTransitioning(false); // Reset the sidebar transition after delay
+      setSidebarTransitioning(false);
     }, 500);
   };
 
@@ -27,9 +27,9 @@ const UI = () => {
   };
 
   const toggleTheme = () => {
-    if (themeTransitioning) return; // Prevent triggering theme toggle if already transitioning
+    if (themeTransitioning) return;
     
-    setThemeTransitioning(true); // Trigger the theme transition
+    setThemeTransitioning(true);
     
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
@@ -42,7 +42,7 @@ const UI = () => {
 
     setTimeout(() => {
       htmlElement.classList.remove('fade-transition');
-      setThemeTransitioning(false); // Reset the theme transition after delay
+      setThemeTransitioning(false);
     }, 1000);
   };
 
@@ -68,7 +68,7 @@ const UI = () => {
               position: 'relative',
               color: 'var(--text-color)',
               border: '1px solid #333333',
-              padding: '10px',
+              padding: '30px',
               flex: 1,
               pointerEvents: 'auto',
             }}
@@ -77,7 +77,7 @@ const UI = () => {
               <h1 className="header">Aarni Kivelä</h1>
               <div>
                 <button 
-                  className="custom-button" 
+                  className="custom-button2" 
                   onClick={toggleTheme}
                   style={{
                     position: 'fixed',
@@ -92,27 +92,87 @@ const UI = () => {
               </div>
             </div>
 
+            
+
             <Home
               isOpen={activeSidebar === 'home'}
-              transitioning={sidebarTransitioning} // Pass sidebar-specific transitioning state
+              transitioning={sidebarTransitioning}
               onToggle={() => toggleSidebar('home')}
             />
             <Info
               isOpen={activeSidebar === 'info'}
-              transitioning={sidebarTransitioning} // Pass sidebar-specific transitioning state
+              transitioning={sidebarTransitioning}
               onToggle={() => toggleSidebar('info')}
             />
             <Projects
               isOpen={activeSidebar === 'projects'}
-              transitioning={sidebarTransitioning} // Pass sidebar-specific transitioning state
+              transitioning={sidebarTransitioning}
               onToggle={() => toggleSidebar('projects')}
             />
             <Contact
               isOpen={activeSidebar === 'contact'}
-              transitioning={sidebarTransitioning} // Pass sidebar-specific transitioning state
+              transitioning={sidebarTransitioning}
               onToggle={() => toggleSidebar('contact')}
             />
+            <div
+  style={{
+    position: "absolute",
+    display: "flex",
+    flexDirection: "row",
+    gap: "20px",
+  }}
+>
+  <button
+    className="custom-button"
+    onClick={() =>
+      window.open(
+        "https://fi.linkedin.com/in/aarni-kivel%C3%A4-425353253",
+        "_blank"
+      )
+    }
+    style={{
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+    }}
+  >
+    <img
+      src="/resources/icon-linkedin-omg.svg"
+      alt="LinkedIn Icon"
+      style={{
+        width: "30px",
+        height: "30px",
+        filter: "invert(var(--logo-color))",
+      }}
+    />
+  </button>
+
+  <button
+    className="custom-button"
+    onClick={() =>
+      window.open("https://github.com/betoniarska/", "_blank")
+    }
+    style={{
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+    }}
+  >
+    <img
+      src="/resources/icon-github-omg.svg"
+      alt="GitHub Icon"
+      style={{
+        width: "30px",
+        height: "30px",
+        filter: "invert(var(--logo-color))",
+      }}
+    />
+  </button>
+</div>
+
+            
           </div>
+          
         </div>
       )}
     </>

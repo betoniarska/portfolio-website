@@ -3,14 +3,23 @@ import '/style.css';
 
 const Load = ({ onFinish }) => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
+  const [isTextVisible, setIsTextVisible] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsButtonVisible(true);
+      setIsTextVisible(true);
     }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const handleProceed = () => {
+    setIsFadingOut(true); 
+    setTimeout(() => {
+      onFinish();
+    }, 1000);
+  };
 
   return (
     <div
@@ -27,26 +36,29 @@ const Load = ({ onFinish }) => {
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 2000,
+        opacity: isFadingOut ? 0 : 1,
+        transition: 'opacity 1s ease',
       }}
     >
-      <div className="spinner" />
-      <p style={{ marginTop: '20px', fontFamily: 'Space Grotesk', fontSize: '18px' }}>
-        Loading...
-      </p>
-      {isButtonVisible && (
-        <button
-          onClick={onFinish}
+      {!isTextVisible && <div className="loader" />}
+      
+      {isTextVisible && (
+        <p
           style={{
             marginTop: '20px',
-            padding: '10px 20px',
-            backgroundColor: '#007BFF',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '5px',
             fontFamily: 'Space Grotesk',
-            fontSize: '16px',
-            cursor: 'pointer',
+            fontSize: '18px',
+            animation: 'fadeIn 2s ease-out forwards',
           }}
+        >
+          Aarni Kivelä - CV / Portfolio
+        </p>
+      )}
+      
+      {isTextVisible && (
+        <button
+          onClick={handleProceed}
+          className="custom-button"
         >
           Proceed
         </button>
