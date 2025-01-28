@@ -14,30 +14,17 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
 
       {isOpen && (
         <div
-          style={{
-            position: 'fixed',
-            top: '30px',
-            right: '30px',
-            bottom: '30px',
-            width: 'calc(100vw - 60px)',
-            maxWidth: '500px',
-            overflowY: 'scroll',
-            pointerEvents: 'auto',
-            padding: '0px',
-            zIndex: 2000,
-            boxSizing: 'border-box',
-          }}
-          className={`fade-container ${transitioning ? 'fade-out' : 'fade-in'}`}
+          className={`projects-sidebar ${transitioning ? 'fade-out' : 'fade-in'}`}
         >
-
           <button
             className="custom-button-big"
-            onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
+            onClick={() => window.open('https://github.com/betoniarska/portfolio-website', '_blank')}
           >
             Portfolio Website
           </button>
 
           <p className="project-description">This space odyssey is made With Three.js & React.</p>
+
           <button
             className="custom-button-big"
             onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
@@ -48,7 +35,7 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
 
           <button
             className="custom-button-big"
-            onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
+            onClick={() => window.open('https://github.com/betoniarska/Murmuration-demo', '_blank')}
           >
             Murmuration With Three.js
           </button>
@@ -56,15 +43,39 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
 
           <button
             className="custom-button-big"
-            onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
+            onClick={() => window.open('https://github.com/betoniarska/hajo-harkkatyo', '_blank')}
           >
             Gartic Phone
           </button>
-          <p className="project-description">Gartic Phone app which utilizes threads.</p>
+          <p className="project-description">Gartic Phone app which utilizes threads. Made as a course final project.</p>
 
           <button
             className="custom-button-big"
-            onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
+            onClick={() => window.open('https://github.com/betoniarska/fullstack-4', '_blank')}
+          >
+            Fullstack part 4
+          </button>
+          <p className="project-description">Part 4 app for the course: Fullstack open.</p>
+
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/part3-notes-backend', '_blank')}
+          >
+            Fullstack part 3 - backend
+          </button>
+          <p className="project-description">Part 3 backend app for the course: Fullstack open.</p>
+
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/olio-ohjelmoinnin_jatkokurssi', '_blank')}
+          >
+            OOJ
+          </button>
+          <p className="project-description">All the tasks for the course "Olio-ohjelmoinnin jatkokurssi 2022"</p>
+
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/', '_blank')}
           >
             Bachelor's Thesis
           </button>
@@ -72,11 +83,12 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
 
           <button
             className="custom-button-big"
-            onClick={() => window.open('https://github.com/betoniarska/Discord-chat-bot', '_blank')}
+            onClick={() => window.open('https://github.com/betoniarska/ecological-state-of-lakes', '_blank')}
           >
             Population Center Map
           </button>
           <p className="project-description">Coming soon</p>
+
         </div>
       )}
     </div>

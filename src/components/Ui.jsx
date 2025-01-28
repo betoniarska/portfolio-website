@@ -8,14 +8,14 @@ import { updateSceneTheme } from '../threejs/main';
 
 const UI = () => {
   const [activeSidebar, setActiveSidebar] = useState('home');
-  const [sidebarTransitioning, setSidebarTransitioning] = useState(false); 
+  const [sidebarTransitioning, setSidebarTransitioning] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [themeTransitioning, setThemeTransitioning] = useState(false);
 
   const toggleSidebar = (sidebarName) => {
     if (activeSidebar === sidebarName) return;
-    setSidebarTransitioning(true); 
+    setSidebarTransitioning(true);
     setTimeout(() => {
       setActiveSidebar(sidebarName);
       setSidebarTransitioning(false);
@@ -28,9 +28,9 @@ const UI = () => {
 
   const toggleTheme = () => {
     if (themeTransitioning) return;
-    
+
     setThemeTransitioning(true);
-    
+
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
 
@@ -50,49 +50,11 @@ const UI = () => {
     <>
       {loading && <Load onFinish={handleFinishLoading} />}
       {!loading && (
-        <div
-          style={{
-            position: 'fixed',
-            zIndex: 1000,
-            boxSizing: 'border-box',
-            height: '100%',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            pointerEvents: 'none',
-            border: "30px solid var(--border-color)"
-          }}
-        >
-          <div
-            style={{
-              position: 'relative',
-              color: 'var(--text-color)',
-              border: '1px solid #333333',
-              padding: '30px',
-              flex: 1,
-              pointerEvents: 'auto',
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="ui-container">
+          <div className="ui-inner">
+            <div className="ui-header">
               <h1 className="header">Aarni Kivelä</h1>
-              <div>
-                <button 
-                  className="custom-button2" 
-                  onClick={toggleTheme}
-                  style={{
-                    position: 'fixed',
-                    bottom: '40px',
-                    left: '40px',
-                    zIndex: 1050,
-                    backgroundColor: 'transparent',
-                  }}
-                >
-                  {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-                </button>
-              </div>
             </div>
-
-            
 
             <Home
               isOpen={activeSidebar === 'home'}
@@ -114,65 +76,41 @@ const UI = () => {
               transitioning={sidebarTransitioning}
               onToggle={() => toggleSidebar('contact')}
             />
-            <div
-  style={{
-    position: "absolute",
-    display: "flex",
-    flexDirection: "row",
-    gap: "20px",
-  }}
->
-  <button
-    className="custom-button"
-    onClick={() =>
-      window.open(
-        "https://fi.linkedin.com/in/aarni-kivel%C3%A4-425353253",
-        "_blank"
-      )
-    }
-    style={{
-      display: "flex",
-      alignItems: "center",
-      gap: "10px",
-    }}
-  >
-    <img
-      src="/resources/icon-linkedin-omg.svg"
-      alt="LinkedIn Icon"
-      style={{
-        width: "30px",
-        height: "30px",
-        filter: "invert(var(--logo-color))",
-      }}
-    />
-  </button>
-
-  <button
-    className="custom-button"
-    onClick={() =>
-      window.open("https://github.com/betoniarska/", "_blank")
-    }
-    style={{
-      display: "flex",
-      alignItems: "center",
-      gap: "10px",
-    }}
-  >
-    <img
-      src="/resources/icon-github-omg.svg"
-      alt="GitHub Icon"
-      style={{
-        width: "30px",
-        height: "30px",
-        filter: "invert(var(--logo-color))",
-      }}
-    />
-  </button>
-</div>
 
             
+            <div className="social-buttons">
+              <button
+                className="custom-button2"
+                onClick={() =>
+                  window.open(
+                    "https://fi.linkedin.com/in/aarni-kivel%C3%A4-425353253",
+                    "_blank"
+                  )
+                }
+              >
+                <img
+                  src="/resources/icon-linkedin-omg.svg"
+                  alt="LinkedIn Icon"
+                  className="social-icon"
+                />
+              </button>
+              <button
+                className="custom-button3"
+                onClick={() => window.open("https://github.com/betoniarska/", "_blank")}
+              >
+                <img
+                  src="/resources/icon-github-omg.svg"
+                  alt="GitHub Icon"
+                  className="social-icon"
+                />
+              </button>
+            </div>
+
+            
+            <button className="theme-button" onClick={toggleTheme}>
+              {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+            </button>
           </div>
-          
         </div>
       )}
     </>

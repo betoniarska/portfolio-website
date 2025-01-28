@@ -30,19 +30,11 @@ const Home = ({ isOpen, transitioning, onToggle }) => {
             currently working on my bachelor's thesis. I intend to pursue a master's degree 
             in Data Analytics. I am currently searching for a summer job.
           </p>
-          <img 
-            src="/resources/logo-UTU-omg.svg" 
-            alt="UTU logo" 
-            style={{ 
-              position: 'absolute',
-              bottom: '150px',
-              right: '50px',
-              width: '200px', 
-              height: '80px',
-              filter: 'invert(var(--logo-color))',
-              
-            }} 
-          />
+            <img 
+              src="/resources/logo-UTU-omg.svg" 
+              alt="UTU logo" 
+              className="utu-logo" 
+            />
         </div>
       )}
     </div>

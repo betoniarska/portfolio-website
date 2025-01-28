@@ -25,6 +25,8 @@ html, body, #root {
   overflow-y: auto; 
 }
 
+/* Colors */
+
 :root {
   --background-color: #111111;
   --text-color: #EBF5EE;
@@ -94,21 +96,36 @@ div {
 .custom-button2 {
   all: unset;
   color: var(--text-color);
-  padding: 15px;
+  padding: 0px 0px 0px 30px;
   cursor: pointer;
   font-family: 'Space Grotesk';
   font-size: 18px;
   letter-spacing: 2px;
+  z-index: 10000;
+}
+
+.custom-button3 {
+  all: unset;
+  color: var(--text-color);
+  padding: 0px 0px 0px 10px;
+  cursor: pointer;
+  font-family: 'Space Grotesk';
+  font-size: 18px;
+  letter-spacing: 2px;
+  z-index: 10000;
 }
 
 .custom-button {
   all: unset;
   color: var(--text-color);
-  padding: 15px 0px 15px 0px;
+  
+  padding: 15px 0px 15px 30px;
+  
   cursor: pointer;
   font-family: 'Space Grotesk';
   font-size: 18px;
   letter-spacing: 2px;
+  z-index: 10000;
 }
 
 .custom-button:hover {
@@ -160,11 +177,13 @@ li::marker {
   text-align: "start";
 }
 
+
 .header {
   font-family: 'Space Grotesk';
   font-size: 70px;
   padding: 0 0 0 0;
-  margin-top: 0px;
+  margin-top: 20px;
+  margin-left: 30px;
   margin-bottom: 40px;
   color: var(--text-color);
   letter-spacing: -2px;
@@ -176,8 +195,6 @@ li::marker {
 
 
 .loader {
-
-
   width: 200px;
   aspect-ratio: .75;
   --c: no-repeat linear-gradient(#CCC 0 0);
@@ -195,9 +212,6 @@ li::marker {
   80% {background-size: 20% 50% ,20% 50% ,20% 100%}
   100%{background-size: 20% 50% ,20% 50% ,20% 50% }
 }
-
-
-
 
 .fade-in {
   animation: fadeIn 0.5s backwards; 
@@ -222,5 +236,381 @@ li::marker {
   }
   100% {
     opacity: 0;
+  }
+}
+
+.ui-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  border: min(5vw, 30px) solid var(--border-color);
+  overflow: hidden;
+}
+
+.ui-inner {
+  position: relative;
+  color: var(--text-color);
+  border: 1px solid #333333;
+  padding: calc(min(5vw, 30px) - 1px);
+  flex: 1;
+  pointer-events: auto;
+  overflow: hidden;
+}
+.ui-container, .ui-inner {
+  padding: 0 !important;
+}
+
+
+.ui-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+ 
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  filter: invert(var(--logo-color));
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.theme-button {
+  all: unset; 
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: var(--text-color);
+  font-family: 'Space Grotesk';
+  font-size: 18px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.theme-button:hover {
+  color: var(--accent-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.utu-logo {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  width: 200px;
+  height: 80px;
+  filter: invert(var(--logo-color));
+}
+
+.cv-sidebar {
+  position: fixed; 
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 500px;
+  overflow-y: auto;
+  color: #EBF5EE;
+  pointer-events: auto;
+  padding: 20px;
+  z-index: 10;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.cv-sidebar h1 {
+  margin-top: 20px;
+  color: var(--text-color);
+  font-family: "Space Grotesk";
+}
+.cv-sidebar ul {
+  margin-left: -25px;
+}
+
+.cv-sidebar img {
+  width: 40px;
+  height: 40px;
+  filter: invert(var(--logo-color));
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.projects-sidebar {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  width: 500px;
+  overflow-y: scroll;
+  pointer-events: auto;
+  padding: 0px;
+  z-index: 2000;
+  box-sizing: border-box;
+}
+
+.contact-sidebar {
+  position: fixed; 
+  top: 30px;
+  right: 0;
+  height: 100vh;
+  width: 500px;
+  overflow-y: auto;
+  color: var(--text-color);
+  pointer-events: auto;
+  padding: 20px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header {
+    font-size: 30px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .cv-sidebar {
+    width: 350px;
+    margin-right: 15px;
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .cv-sidebar h1 {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .social-icon {
+    width: 25px;
+    height: 25px;
+    filter: invert(var(--logo-color));
+    transition: transform 0.2s ease;
+  }
+
+  .utu-logo {
+    width: 150px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+  }
+
+
+  .ui-container {
+    border: 15px solid var(--border-color);
+  }
+
+  .ui-inner {
+    padding: 15px;
+  }
+
+  .custom-button2 {
+    
+    bottom: 5px;
+    left: 20px;
+    font-size: 14px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  .custom-button {
+    font-size: 14px;
+    padding: 0px;
+  }
+
+  .custom-button-big {
+    font-size: 30px;
+    padding: 40px 20px 0 20px;
+  }
+
+  .theme-button {
+    all: unset; 
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: var(--text-color);
+    font-family: 'Space Grotesk';
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+
+  .projects-sidebar {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    width: 350px;
+    
+    overflow-y: scroll;
+    pointer-events: auto;
+    padding: 0px;
+    z-index: 2000;
+    box-sizing: border-box;
+  }
+  
+  .project-description {
+    width: calc(100% - 50px);
+    padding-left: 20px;
+  }
+
+  .contact-sidebar {
+    position: fixed;
+    top: 40px;
+    right: 30px;
+    bottom: 30px;
+    width: 350px;
+    
+    padding: 0px;
+    z-index: 2000;
+    box-sizing: border-box;
+  }
+
+  .info-text, .home-text {
+    font-size: 12px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: start;
+  }
+
+  div {
+    padding: 10px;
+  }
+
+}
+
+
+/* Smaller */
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+  }
+
+  .cv-sidebar {
+    width: 70%; 
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .cv-sidebar h1 {
+    font-size: 18px;
+  }
+
+  .cv-sidebar ul {
+    font-size: 12px;
+  }
+
+  .cv-sidebar img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(var(--logo-color));
+    transition: transform 0.2s ease;
+    gap: -30px;
+    
+    
+  }
+
+  .utu-logo {
+    width: 100px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .custom-button2 {
+    
+    left: 10px;
+    font-size: 12px;
+    padding: 0px 0px 0px 8px;
+  }
+
+  .custom-button {
+    font-size: 12px;
+    padding: 8px;
+    left: 10px;
+  }
+
+  .custom-button-big {
+    font-size: 24px;
+    padding: 20px 10px 0 10px;
+  }
+
+  .theme-button {
+    all: unset; 
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: var(--text-color);
+    font-family: 'Space Grotesk';
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+
+  .projects-sidebar {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    width: 200px;
+    overflow-y: scroll;
+    pointer-events: auto;
+    padding: 0px;
+    z-index: 2000;
+    box-sizing: border-box;
+  }
+
+  .project-description {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .contact-sidebar {
+    position: fixed;
+    top: 40px;
+    right: 30px;
+    bottom: 30px;
+    width: 200px; 
+    overflow-y: scroll;
+    pointer-events: auto;
+    padding: 0px;
+    z-index: 2000;
+    box-sizing: border-box;
+  }
+
+  .info-text, .home-text {
+    font-size: 10px;
+  }
+
+  div {
+    padding: 5px;
   }
 }

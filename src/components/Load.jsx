@@ -9,7 +9,7 @@ const Load = ({ onFinish }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsTextVisible(true);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -58,7 +58,7 @@ const Load = ({ onFinish }) => {
       {isTextVisible && (
         <button
           onClick={handleProceed}
-          className="custom-button"
+          className="custom-button2"
         >
           Proceed
         </button>
