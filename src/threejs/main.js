@@ -8,6 +8,12 @@ let scene, camera, renderer, ambientLight;
 let audioContext, audioBuffer, audioSource;
 let isLightMode = false;
 
+export let additionalZoomSpeed = 10;
+
+export function increaseZoomSpeed(amount) {
+    additionalZoomSpeed += amount;
+}
+
 // initscene
 export function initScene(containerId) {
     console.log("main.js loaded");
@@ -22,8 +28,8 @@ export function initScene(containerId) {
     camera.position.z = -600;
 
     const initialFogColor = 0x111111;
-    const near = 240;
-    const far = 250;
+    const near = 110;
+    const far = 125;
     scene.fog = new THREE.Fog(initialFogColor, near, far);
 
     renderer = new THREE.WebGLRenderer();
@@ -45,12 +51,12 @@ export function initScene(containerId) {
         scales[i] = Math.random() * 0.3 + 0.1;
     }
 
-    let additionalZoomSpeed = 10;
-    const dampingFactor = 0.96;
+    
+    const dampingFactor = 0.98;
     const zoomSpeed = 0.04;
 
     window.addEventListener('wheel', (event) => {
-        additionalZoomSpeed += Math.abs(event.deltaY * 0.0002);
+        additionalZoomSpeed += Math.abs(event.deltaY * 0.0001);
     });
 
     window.addEventListener('resize', () => {

@@ -5,6 +5,7 @@ import Info from './Info';
 import Projects from './Projects';
 import Contact from './Contact';
 import { updateSceneTheme } from '../threejs/main';
+import { increaseZoomSpeed } from '../threejs/main';
 
 const UI = () => {
   const [activeSidebar, setActiveSidebar] = useState('home');
@@ -16,6 +17,7 @@ const UI = () => {
   const toggleSidebar = (sidebarName) => {
     if (activeSidebar === sidebarName) return;
     setSidebarTransitioning(true);
+    increaseZoomSpeed(0.3);
     setTimeout(() => {
       setActiveSidebar(sidebarName);
       setSidebarTransitioning(false);

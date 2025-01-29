@@ -58,7 +58,7 @@ const Load = ({ onFinish }) => {
       {isTextVisible && (
         <button
           onClick={handleProceed}
-          className="custom-button2"
+          className="custom-button3"
         >
           Proceed
         </button>

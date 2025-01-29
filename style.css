@@ -6,6 +6,10 @@ html, body, #root {
   padding: 0;
   height: 100%;
   overflow: hidden;
+
+}
+html, body {
+  min-height: 100vh;
 }
 
 #threejs-container {
@@ -194,23 +198,30 @@ li::marker {
 }
 
 
+
 .loader {
-  width: 200px;
-  aspect-ratio: .75;
-  --c: no-repeat linear-gradient(#CCC 0 0);
-  background: 
-    var(--c) 0%   50%,
-    var(--c) 50%  50%,
-    var(--c) 100% 50%;
-  animation: l7 1s infinite linear alternate;
+  width: 240px;
+  height: 100px;
+  border: 2px solid;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: grid;
+  animation: l2 2s infinite linear;
 }
-@keyframes l7 {
-  0%  {background-size: 20% 50% ,20% 50% ,20% 50% }
-  20% {background-size: 20% 20% ,20% 50% ,20% 50% }
-  40% {background-size: 20% 100%,20% 20% ,20% 50% }
-  60% {background-size: 20% 50% ,20% 100%,20% 20% }
-  80% {background-size: 20% 50% ,20% 50% ,20% 100%}
-  100%{background-size: 20% 50% ,20% 50% ,20% 50% }
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  border: inherit;
+  border-radius: 50%;
+  animation: inherit;
+  animation-duration: 3s;
+}
+.loader:after {
+  --s:-1;
+}
+@keyframes l2 {
+   100% {transform:rotate(calc(var(--s,1)*1turn))}
 }
 
 .fade-in {
@@ -244,13 +255,15 @@ li::marker {
   inset: 0;
   z-index: 1000;
   box-sizing: border-box;
-  height: 100%;
+  height: 100dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
   pointer-events: none;
   border: min(5vw, 30px) solid var(--border-color);
   overflow: hidden;
+  bottom: 0;
+  max-height: 100dvh;
 }
 
 .ui-inner {
@@ -294,7 +307,7 @@ li::marker {
 .theme-button {
   all: unset; 
   position: absolute;
-  bottom: 20px;
+  bottom: max(10px, 2vh);
   left: 20px;
   color: var(--text-color);
   font-family: 'Space Grotesk';
@@ -322,7 +335,8 @@ li::marker {
 
 .cv-sidebar {
   position: fixed; 
-  top: 0;
+  top: 30px;
+  bottom: 100px;
   right: 0;
   height: 100vh;
   width: 500px;
@@ -331,7 +345,7 @@ li::marker {
   pointer-events: auto;
   padding: 20px;
   z-index: 10;
-  margin-top: 30px;
+  margin-top: 0px;
   box-sizing: border-box;
 }
 
@@ -385,13 +399,16 @@ li::marker {
     font-size: 30px;
     margin-bottom: 0px;
     margin-left: 0px;
+    letter-spacing: 0px;
   }
 
   .cv-sidebar {
-    width: 350px;
-    margin-right: 15px;
-    margin-top: 20px;
-    padding: 15px;
+    top: 15px;
+    bottom: 15px;
+    height: calc(100vh - 60px);
+    width: 350px; 
+    
+    
   }
 
   .cv-sidebar h1 {
@@ -485,7 +502,7 @@ li::marker {
   }
 
   .info-text, .home-text {
-    font-size: 12px;
+    font-size: 16px;
     width: 60%;
     margin-left: auto;
     margin-right: 0;
@@ -506,9 +523,14 @@ li::marker {
     font-size: 20px;
     margin-bottom: 10px;
     margin-left: 5px;
+    letter-spacing: 0px;
+
   }
 
   .cv-sidebar {
+    top: 15px;
+    bottom: 15px;
+    height: calc(100vh - 60px);
     width: 70%; 
     margin-right: 10px;
     margin-top: 10px;
@@ -519,9 +541,7 @@ li::marker {
     font-size: 18px;
   }
 
-  .cv-sidebar ul {
-    font-size: 12px;
-  }
+  
 
   .cv-sidebar img {
     width: 30px;
@@ -607,7 +627,7 @@ li::marker {
   }
 
   .info-text, .home-text {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   div {

@@ -12,7 +12,7 @@ export function createParticleSystem(scene) {
 
     const instancedMesh = new THREE.InstancedMesh(particleGeometry, particleMaterial, particleCount);
 
-    const range = 500;
+    const range = 300;
     const dummy = new THREE.Object3D();
 
     for (let i = 0; i < particleCount; i++) {
