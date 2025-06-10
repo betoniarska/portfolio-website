@@ -1,3 +1,6 @@
+
+// main.js responsible for initializing the scene, camera, renderer, and handling the particle system, soundtrack, and theme updates.
+
 import * as THREE from 'three';
 import { createParticleSystem } from './particles';
 
@@ -23,6 +26,8 @@ export function initScene(containerId) {
         return;
     }
 
+
+
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = -600;
@@ -47,11 +52,38 @@ export function initScene(containerId) {
     }
     ({ instancedMesh } = createParticleSystem(scene));
 
+    // logic to reposition particles on lightmode init
+
+    const dummy = new THREE.Object3D();
+    for (let i = 0; i < particleCount; i++) {
+    const x = (Math.random() - 0.5) * 300;
+    const y = (Math.random() - 0.5) * 300;
+
+    let z;
+    if (isLightMode) {
+        z = 50 - Math.random() * 2050;
+    } else {
+        z = -2000 + Math.random() * 2050 + Math.random() * 500;
+    }
+
+    dummy.position.set(x, y, z);
+    dummy.scale.setScalar(Math.random() * 0.3 + 0.1);
+    dummy.updateMatrix();
+
+    instancedMesh.setMatrixAt(i, dummy.matrix);
+}
+instancedMesh.instanceMatrix.needsUpdate = true;
+
+    const storedTheme = localStorage.getItem('isDarkMode');
+    if (storedTheme !== null) {
+        const isDark = JSON.parse(storedTheme);
+        updateSceneTheme(isDark);
+    }
+
     for (let i = 0; i < particleCount; i++) {
         scales[i] = Math.random() * 0.3 + 0.1;
     }
 
-    
     const dampingFactor = 0.98;
     const zoomSpeed = 0.04;
 
@@ -68,7 +100,7 @@ export function initScene(containerId) {
 
     loadAndPlaySoundtrack('../../resources/deep-space-ambiance-48854.mp3');
 
-    // animate
+    // animate function
     function animate() {
         requestAnimationFrame(animate);
 
@@ -160,17 +192,19 @@ let animationFrameId = null;
 export function updateSceneTheme(isDarkMode) {
     if (!scene || !ambientLight) return;
 
+    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
+
     const darkModeColors = {
         background: new THREE.Color(0x111111),
         fog: new THREE.Color(0x111111),
         ambientLight: new THREE.Color(0xFFFFFF),
         particle: new THREE.Color(0xFFFFFF),
     };
-
+    
     const lightModeColors = {
         background: new THREE.Color(0xC9C9C9),
         fog: new THREE.Color(0xC9C9C9),
-        ambientLight: new THREE.Color(0x000000),
+        ambientLight: new THREE.Color(0xFFFFFF),
         particle: new THREE.Color(0x000000),
     };
 
@@ -202,6 +236,8 @@ export function updateSceneTheme(isDarkMode) {
 
         if (t < 1) {
             animationFrameId = requestAnimationFrame(interpolateColor);
+            instancedMesh.material.needsUpdate = true;
+    
         } else {
             animationFrameId = null;
         }

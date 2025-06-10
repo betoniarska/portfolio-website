@@ -1,3 +1,7 @@
+
+// home.jsx responsible for displaying the home page content.
+// default scene for the portfolio
+
 import React from 'react';
 import '/style.css';
 

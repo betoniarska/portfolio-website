@@ -1,3 +1,6 @@
+
+// Contact.jsx responsible for displaying the contact information sidebar in the portfolio application.
+
 import React from 'react';
 import '/style.css';
 

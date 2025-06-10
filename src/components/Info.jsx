@@ -1,3 +1,6 @@
+
+// info.jsx responsible for displaying CV information in a sidebar.
+
 import React from 'react';
 import '/style.css';
 

@@ -1,7 +1,12 @@
+
+// projects.jsx responsible for displaying different projects in a sidebar, allows to navigate to project links providing short descriptions for each project.
+
 import React from 'react';
 import '/style.css';
+import { useNavigate } from 'react-router-dom';
 
 const Projects = ({ isOpen, transitioning, onToggle }) => {
+  const navigate = useNavigate();
   return (
     <div style={{ position: 'relative' }}>
       <button
@@ -75,11 +80,11 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
 
           <button
             className="custom-button-big"
-            onClick={() => window.open('https://github.com/betoniarska/', '_blank')}
+            onClick={() => navigate('/kandi')}
           >
             Bachelor's Thesis
           </button>
-          <p className="project-description">Coming soon</p>
+          <p className="project-description">View the thesis directly on this site.</p>
 
           <button
             className="custom-button-big"

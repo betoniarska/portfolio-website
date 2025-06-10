@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Load from './Load';
 import Home from './Home';
 import Info from './Info';
@@ -13,6 +13,15 @@ const UI = () => {
   const [loading, setLoading] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [themeTransitioning, setThemeTransitioning] = useState(false);
+
+  // On first render, sync theme from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    setIsDarkMode(prefersDark);
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    
+  }, []);
 
   const toggleSidebar = (sidebarName) => {
     if (activeSidebar === sidebarName) return;
@@ -39,6 +48,7 @@ const UI = () => {
     const htmlElement = document.documentElement;
     htmlElement.classList.add('fade-transition');
     htmlElement.setAttribute('data-theme', newMode ? 'dark' : 'light');
+    localStorage.setItem('theme', newMode ? 'dark' : 'light'); // persist!
 
     updateSceneTheme(newMode);
 
@@ -79,7 +89,6 @@ const UI = () => {
               onToggle={() => toggleSidebar('contact')}
             />
 
-            
             <div className="social-buttons">
               <button
                 className="custom-button2"
@@ -108,7 +117,6 @@ const UI = () => {
               </button>
             </div>
 
-            
             <button className="theme-button" onClick={toggleTheme}>
               {isDarkMode ? 'Light Mode' : 'Dark Mode'}
             </button>

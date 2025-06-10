@@ -3,7 +3,7 @@ import * as THREE from 'three';
 export function createParticleSystem(scene) {
     console.log('particles.js loaded');
     const particleCount = 50000;
-    const particleGeometry = new THREE.SphereGeometry(0.5, 8, 8);
+    const particleGeometry = new THREE.SphereGeometry(0.6, 8, 8);
     const particleMaterial = new THREE.MeshStandardMaterial({
         color: 0xFFFFFF,
         transparent: true,
