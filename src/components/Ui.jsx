@@ -1,3 +1,6 @@
+
+// Ui.jsx responsible for rendering the main UI components of the application (three.js scene, sidebar navigation, and theme toggling).
+
 import React, { useState, useEffect } from 'react';
 import Load from './Load';
 import Home from './Home';

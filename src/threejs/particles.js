@@ -1,3 +1,6 @@
+
+// particles.js responsible for creating a particle system in Three.js
+
 import * as THREE from 'three';
 
 export function createParticleSystem(scene) {
