@@ -21,6 +21,56 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
         <div
           className={`projects-sidebar ${transitioning ? 'fade-out' : 'fade-in'}`}
         >
+
+
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/Chess-Data-analysis', '_blank')}
+          >
+            Data-Analysis on Chess Games
+          </button>
+
+          <p className="project-description">Descriptive analysis on chess data from games played on chess.com</p>
+
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/Habits-in-the-Finnish-population', '_blank')}
+          >
+            Data-Analysis on Habits in the Finnish Population
+          </button>
+
+          <p className="project-description">Descriptive and explorative analysis on the activities of Finnish population based on a sample</p>
+
+
+      
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/Grid-approximations', '_blank')}
+          >
+            Grid Approximations for the course: Probabilistic Programming
+          </button>
+
+          <p className="project-description">Exercises for Bayesian Statistics</p>
+
+
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/Spinning-Cube', '_blank')}
+          >
+            ASCII Spinning Cube
+          </button>
+
+          <p className="project-description">For fun</p>
+
+          <button
+            className="custom-button-big"
+            onClick={() => window.open('https://github.com/betoniarska/Statistical-Data-Analysis', '_blank')}
+          >
+            Exrcises of the course: Statistical Data-analysis
+          </button>
+
+          <p className="project-description">Jupyter notebooks and data included</p>
+
           <button
             className="custom-button-big"
             onClick={() => window.open('https://github.com/betoniarska/portfolio-website', '_blank')}
@@ -56,6 +106,14 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
 
           <button
             className="custom-button-big"
+            onClick={() => window.open('https://urn.fi/URN:NBN:fi-fe2025072979931')}
+          >
+            Bachelor's Thesis
+          </button>
+          <p className="project-description">Bachelor's Thesis on the use of Large Language Models for automated program repair and fault localization</p>
+
+          <button
+            className="custom-button-big"
             onClick={() => window.open('https://github.com/betoniarska/fullstack-4', '_blank')}
           >
             Fullstack part 4
@@ -77,14 +135,6 @@ const Projects = ({ isOpen, transitioning, onToggle }) => {
             OOJ
           </button>
           <p className="project-description">All the tasks for the course "Olio-ohjelmoinnin jatkokurssi 2022"</p>
-
-          <button
-            className="custom-button-big"
-            onClick={() => navigate('/kandi')}
-          >
-            Bachelor's Thesis
-          </button>
-          <p className="project-description">View the thesis directly on this site.</p>
 
           <button
             className="custom-button-big"

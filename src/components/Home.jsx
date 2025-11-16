@@ -30,9 +30,7 @@ const Home = ({ isOpen, transitioning, onToggle }) => {
           className={transitioning ? 'fade-out' : 'fade-in'}
         >
           <p className="home-text">
-            I am a third-year Computer Science student at the University of Turku, 
-            currently working on my bachelor's thesis. I intend to pursue a master's degree 
-            in Data Analytics. I am currently searching for a summer job.
+            I am a Bachelor of Computer Science graduate from the University of Turku, currently pursuing a Master's degree in Data Analytics. I am exploring opportunities for internships and professional growth in the field.
           </p>
             <img 
               src="/resources/logo-UTU-omg.svg" 

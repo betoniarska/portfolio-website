@@ -17,34 +17,41 @@ const Info = ({ isOpen, transitioning, onToggle }) => {
 
       {isOpen && (
   <div className={`cv-sidebar ${transitioning ? 'fade-out' : 'fade-in'}`}>
-    <h1 className="info-text">Education</h1>
+   <h1 className="info-text">Education</h1>
     <ul>
-      <li className="info-text">Computer Science, University of Turku (from autumn 2022)</li>
-      <li className="info-text">Military Service (spring 2022)</li>
-      <li className="info-text">Matriculation Examination, Helsinki Upper Secondary School of Natural Sciences (spring 2021)</li>
+      <li className="info-text">
+        M.Sc. in Data Analytics, University of Turku (currently ongoing)
+      </li>
+      <li className="info-text">
+        B.Sc. in Computer Science, University of Turku (2022–2025)
+      </li>
+      <li className="info-text">Military Service, Spring 2022</li>
+      <li className="info-text">Matriculation Examination, Helsinki Upper Secondary School of Natural Sciences, Spring 2021</li>
     </ul>
+
 
     <h1 className="info-text">Skills</h1>
+
+    <h3 className="info-text">Programming & Data</h3>
     <ul>
-      <li className="info-text">Java: Proficient++</li>
-      <li className="info-text">Python: Proficient</li>
-      <li className="info-text">JavaScript: Proficient</li>
-      <li className="info-text">Unix/Linux usage/administration</li>
-      <li className="info-text">Server management & maintenance</li>
-      <li className="info-text">Others: React, CSS, SQL, R, GIS systems</li>
+      
+      <li className="info-text">Python – data analysis, scripting, ML libraries</li>
+      <li className="info-text">Java – software development, algorithms</li>
+      <li className="info-text">R – statistical modeling, data visualization</li>
+      <li className="info-text">SQL – database querying & management</li>
     </ul>
 
-    <h1 className="info-text">Languages</h1>
+    <h3 className="info-text">Web & DevOps</h3>
     <ul>
-      <li className="info-text">Finnish: Native</li>
-      <li className="info-text">English: Excellent</li>
-      <li className="info-text">Swedish: Satisfactory</li>
+      <li className="info-text">JavaScript, React, CSS – front-end development</li>
+      <li className="info-text">Unix/Linux – system administration, server maintenance</li>
+      <li className="info-text">Git – version control</li>
     </ul>
 
     <h1 className="info-text">Other Information</h1>
     <ul>
       <li className="info-text">
-        Asteriski ry, Server Administrator (2023–2025)
+        Asteriski ry, Server Administrator (2023–present)
         <img src="/resources/icon-asteriski-omg.svg" alt="Asteriski logo" />
       </li>
     </ul>
